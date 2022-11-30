@@ -1,0 +1,14 @@
+{
+  "name": "s2xml",
+  "version": "1.0.0",
+  "description": "sgml to xml convertor",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "ariff rahimin",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
