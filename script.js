@@ -10,6 +10,7 @@ const convert = (filepath, outputpath) => {
 
 // Read the SGM file and parse it into a string.
 const reader = (filepath) =>{
+
     return new Promise((resolve) => {
     fs.readFile(filepath, (err, data) => {
         if (err) throw err;
@@ -22,7 +23,7 @@ const reader = (filepath) =>{
 // The String will be concated with a DTD reference if there is none in the file.
 const saver = async (filepath, outputpath, filename) =>{
     const x = await reader(filepath)  
-    const reference = `<!DOCTYPE AMM SYSTEM "${filename}.DTD">`
+    const reference = `<!DOCTYPE ${filename} SYSTEM "${filename}.DTD">`
     const regex = new RegExp(reference);
     const testRegex = regex.test(x)
     if (testRegex == false){
@@ -50,9 +51,9 @@ const saver = async (filepath, outputpath, filename) =>{
 }
 
 const main = () => {
-    var filepath = "SGML/AMM.SGM";
-    var outputpath = "output/AMM.XML";
-    var filename = "AMM";
+    var filepath = "SGML/TSM.SGM"; // The Path of the SGML
+    var outputpath = "output/TSM.XML"; //The Path of the output xml file
+    var filename = "TSM"; // The name of the file
     saver(filepath, outputpath, filename)
 }
 
